@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="input1" type="text" placeholder="first number " />
+    <br /><br />
+    <input id="input2" type="text" placeholder="second number " />
+    <br /><br />
+    <button onclick="change()">calculate</button>
+    <br /><br />
+    <div id="finalSum"></div>
+
+    <script>
+      let globel = 0;
+      const change = () => {
+        const input2 = document.getElementById("input2").value;
+        const input1 = document.getElementById("input1").value;
+        const original = document.getElementById("finalSum");
+
+        original.appendChild(createchild(input1, input2, globel++));
+      };
+      const markeDone = (id) => {
+        const parent = document.getElementById(id);
+        parent.children[2].innerHTML = "Done !";
+      };
+
+      const createchild = (title, description, id) => {
+        const child = document.createElement("div");
+
+        const firstChild = document.createElement("div");
+        firstChild.innerHTML = title;
+        const secondgrandChild = document.createElement("div");
+        secondgrandChild.innerHTML = description;
+
+        const thirdgrandChild = document.createElement("div");
+        thirdgrandChild.innerHTML = "mark as done";
+        thirdgrandChild.setAttribute("onClick", `markeDone(${id})`);
+
+        child.appendChild(firstChild);
+        child.appendChild(secondgrandChild);
+        child.appendChild(thirdgrandChild);
+        child.setAttribute("id", id);
+        return child;
+      };
+    </script>
+  </body>
+</html>
