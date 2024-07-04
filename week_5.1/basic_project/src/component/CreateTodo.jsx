@@ -5,7 +5,7 @@ export function CreateTodo() {
   const [description, setDescription] = useState("");
 
   const handleSubmit = () => {
-    fetch("http://localhost:3000/todo", {
+    fetch("https://harkirat-course-5.onrender.com/todo", {
       method: "POST",
       body: JSON.stringify({
         title: title,

@@ -6,7 +6,7 @@ function App() {
   const [todo, setTodo] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/todo")
+    fetch("https://harkirat-course-5.onrender.com/todo")
       .then(async (resolve) => {
         const json = await resolve.json();
         setTodo(json.Alltodo);
