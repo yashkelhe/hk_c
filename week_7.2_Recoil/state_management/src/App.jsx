@@ -1,6 +1,6 @@
-import "./App.css";
-import { RecoilRoot, useRecoilState, useRecoilValue } from "Recoil";
-import { countAtoms } from "./store/atoms/count";
+import React from "react";
+import { RecoilRoot, useSetRecoilState, useRecoilValue } from "Recoil";
+import { countAtoms, evenSelector } from "./store/atoms/count";
 function App() {
   return (
     <>
@@ -12,21 +12,32 @@ function App() {
 }
 
 function Appbar() {
+  console.log("re rendering");
   return (
     <div>
       <ShowCounter />
+      <IsEven />
+
       <IncrementCounter />
     </div>
   );
 }
-
+function IsEven() {
+  const value = useRecoilValue(evenSelector);
+  return (
+    <div>
+      <div>{value == 0 ? " its even" : "its odd"}</div>
+    </div>
+  );
+}
 function IncrementCounter() {
-  const [count, setCount] = useRecoilState(countAtoms);
+  const setCount = useSetRecoilState(countAtoms);
+
   return (
     <div>
       <button
         onClick={() => {
-          setCount(count + 1);
+          setCount((prev) => prev + 1);
         }}
       >
         increment
@@ -37,6 +48,11 @@ function IncrementCounter() {
 
 function ShowCounter() {
   const counter = useRecoilValue(countAtoms);
-  return <div>{counter}</div>;
+
+  return (
+    <div>
+      <div>{counter}</div>
+    </div>
+  );
 }
 export default App;
