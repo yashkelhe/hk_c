@@ -1,23 +1,46 @@
-import { useState, useCallback, memo } from "react";
+import { useState, useMemo, useRef } from "react";
+
+const words = ["hi", "my", "name", "is", "yash", "i", "from", "jai", "hind"];
+const number = 1000;
+const arr = [];
+for (let i = 0; i < number; i++) {
+  let sentenceValue = "";
+  for (let j = 0; j < words.length; j++) {
+    sentenceValue += words[Math.floor(words.length * Math.random())] + " ";
+  }
+  arr.push(sentenceValue.trim());
+}
 
 function App() {
-  const [num, setNum] = useState(0);
+  const [sentence, setSentence] = useState(arr);
+  const [filter, setFilter] = useState("");
+  const NumberOfReRender = useRef(-1);
 
-  // useMemo
-  const Count = useCallback(() => {
-    console.log("hello there");
-  }, []);
+  const filteredValue = useMemo(
+    () => sentence.filter((x) => x.includes(filter)),
+    [filter, sentence]
+  );
 
+  NumberOfReRender.current = NumberOfReRender.current + 1;
   return (
     <>
-      <button onClick={() => setNum(num + 1)}>count {num}</button>
-
-      <ButtonComponent innerFunction={Count} />
+      <div>
+        {" "}
+        the number of time the page re render {NumberOfReRender.current}
+      </div>
+      <input
+        type="text"
+        onChange={(e) => {
+          const value = e.target.value;
+          setFilter(value);
+        }}
+        placeholder="Filter sentences"
+      />
+      {filteredValue.map((fil, index) => (
+        <div key={index}>{fil}</div>
+      ))}
     </>
   );
 }
 
-const ButtonComponent = memo(({ innerFunction }) => {
-  return <button onClick={innerFunction}>hello</button>;
-});
 export default App;
