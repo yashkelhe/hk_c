@@ -1,38 +1,58 @@
-import { useRecoilValue, RecoilRoot } from "Recoil";
-import {
-  networkAtoms,
-  jobsAtoms,
-  notiicationAtoms,
-  messageAtoms,
-  sumAtom,
-} from "./store/Atoms/atoms";
+import { useRecoilStateLoadable, useRecoilValue, RecoilRoot } from "Recoil";
+import { networkAtoms, sumAtom, familyFindTheTodo } from "./store/Atoms/atoms";
 
 function App() {
   return (
     <>
       <RecoilRoot>
         <TheVButton />
+        <TheTodo id={2} />
       </RecoilRoot>
     </>
   );
 }
 
 function TheVButton() {
-  const netWork = useRecoilValue(networkAtoms);
-  const jobs = useRecoilValue(jobsAtoms);
-  const Notifiction = useRecoilValue(notiicationAtoms);
-  const message = useRecoilValue(messageAtoms);
+  const Notifiction = useRecoilValue(networkAtoms);
+
   const sum = useRecoilValue(sumAtom);
+
   return (
     <>
       <button>Home</button>
-      <button>My network {netWork <= 99 ? netWork : 99 + "+"}</button>
-      <button>Jobs {jobs <= 99 ? jobs : 99 + "+"}</button>
-      <button>Message {Notifiction <= 99 ? Notifiction : 99 + "+"}</button>
-      <button> Notification {message <= 99 ? message : 99 + "+"}</button>
+      <button>
+        My network {Notifiction.network <= 99 ? Notifiction.network : 99 + "+"}
+      </button>
+      <button>
+        Jobs {Notifiction.jobs <= 99 ? Notifiction.jobs : 99 + "+"}
+      </button>
+      <button>
+        Message {Notifiction.messaging <= 99 ? Notifiction.messaging : 99 + "+"}
+      </button>
+      <button>
+        {" "}
+        Notification{" "}
+        {Notifiction.notifications <= 99 ? Notifiction.notifications : 99 + "+"}
+      </button>
 
       <button> Me {sum}</button>
     </>
   );
+}
+function TheTodo({ id }) {
+  // const theValue = useRecoilValue(familyFindTheTodo(id));
+  const [theValue, setTheValue] = useRecoilStateLoadable(familyFindTheTodo(id));
+  // theValue now give u a object which has a contents and state
+  if (theValue.state === "loading") {
+    return <div>loading...</div>;
+  } else if (theValue.state === "hasValue") {
+    return (
+      <div>
+        the todo is {(theValue.contents.title, theValue.contents.description)}
+      </div>
+    );
+  } else if (todo.state === "hasError") {
+    return <div>backend has some error please check</div>;
+  }
 }
 export default App;
