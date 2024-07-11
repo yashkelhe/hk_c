@@ -139,6 +139,7 @@ router.put("/update", authMiddleware, async (req, res) => {
   }
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////
+// search the user with the lastname and firstname using "or" theb after getting the all user apply the map fun and print
 router.get("/bulk", async (req, res) => {
   const filter = req.query.filter || "";
 
