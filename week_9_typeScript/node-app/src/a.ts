@@ -152,7 +152,7 @@ function ar(numm: arr1) {
 interface i1 {
   name: number | string;
 }
-interface i2 {
+interface i2 extends i1 {
   name: string;
 }
 
@@ -166,3 +166,52 @@ class som implements i1 {
 
 const so = new som("name");
 console.log(so);
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// Enum
+// we use when we know the set of inputs
+enum Direction {
+  up, //0
+  down, //1
+  Left, //2
+  Right, //3
+}
+
+function game(direction: Direction) {
+  if (direction == Direction.Left) {
+  }
+}
+
+game(Direction.Left);
+game(Direction.up);
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// Generic
+
+// take example
+/*
+type input = number | string;
+
+function indentity(arg: input[]) {
+  return arg;
+}
+
+// here u will find that the result doesnot have the  one type
+// and hence u want able to make it toUpperCase becouse it only work on the string not on the number
+
+let ree = indentity(["yash", "kelhe"]);
+ree.toUpperString()
+
+*/
+
+// so for that there is in way we can make it only string or number
+
+function indentity<T>(arg: T): T {
+  return arg;
+}
+
+const res = indentity<string>("string");
+console.log(res.toUpperCase());
+const res1 = indentity<number>(1);
+console.log(typeof res1);
