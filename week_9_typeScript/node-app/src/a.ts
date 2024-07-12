@@ -99,7 +99,7 @@ TypeFunction({
   age: 12,
   greet: (something: string) => {
     console.log({ something });
-    return `hello ${something}`;
+    return `hel lo ${something}`;
   },
 });
 
