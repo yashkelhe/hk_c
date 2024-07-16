@@ -4,3 +4,7 @@ so as the data comes hole page reload so we dont want that for that we find the 
 "the that privouse that which is store that is called as the virtual dom "
 
 so we have to make optimize approach to
+
+npm install -g yarn
+
+docker ps
