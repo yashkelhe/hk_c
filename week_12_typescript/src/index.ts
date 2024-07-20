@@ -109,3 +109,35 @@ function value(valueppp: value) {
   console.log(valueppp);
 }
 value("type");
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// zod inferance is bqasically lets u take the type of the define zod object
+// ex
+
+/*
+
+import z from "zod"
+
+const ZodObject = z.object({
+  name : string().min(10).max(21),
+  age : number().min(1).max(2),
+  username : string()
+  lastName: string  ()
+})
+
+
+type inferType  = z.infer<typeof ZodObject> 
+
+// basically it will give u a interfac4e which u can use in the frontend 
+// by  just importiing a "inferType "
+iterface inferType {
+  name : string;
+  age : number ;
+  username: string;
+  lastName : string;
+}
+
+
+
+*/
