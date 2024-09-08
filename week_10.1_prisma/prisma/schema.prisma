@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql" 
-  url      = "postgresql://firstOne_owner:OoX8AMBLI7Gt@ep-dry-water-a5th684m.us-east-2.aws.neon.tech/firstOne?sslmode=require"
+  url      = "take from newOne"
 }
 
 

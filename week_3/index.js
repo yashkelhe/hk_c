@@ -12,9 +12,7 @@ app.set("views", path.join(__dirname, "views"));
 const modul = mongoose.model("second_DB", { name: String, userName: String });
 
 mongoose
-  .connect(
-    "mongodb+srv://yashkelhe01:cloPgLsFBjKvCpeF@newclustor.jud0fag.mongodb.net/userNew"
-  )
+  .connect("take from newOne")
   .then(() => {
     console.log("the connection has been done for the mongodb");
   })

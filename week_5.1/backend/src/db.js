@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://yashkelhe01:cloPgLsFBjKvCpeF@newclustor.jud0fag.mongodb.net/Todo_full_stack"
-);
+mongoose.connect("take from newOne");
 
 const TodoSchema = mongoose.Schema({
   title: String,

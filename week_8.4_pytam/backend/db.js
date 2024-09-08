@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-mongoose.connect(
-  "mongodb+srv://yashkelhe30:d5ruqBR52dTivdAJ@cluster0.imgivmj.mongodb.net/gateWay"
-);
+mongoose.connect("take from newOne");
 
 const user = mongoose.Schema({
   username: { type: String, required: true },
