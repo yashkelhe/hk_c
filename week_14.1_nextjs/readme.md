@@ -18,3 +18,5 @@ after /signup
 ### try differ the client side components
 
 if not then those would not be the SEO optimize
+
+we dont have the cores issue in the next js
