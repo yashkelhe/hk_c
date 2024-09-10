@@ -1,3 +1,9 @@
+steps for the prisma
+npm install prisma
+npx prisma init
+npx prisma migrate dev --name message_that_want_to_put
+npx prisma generate
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
