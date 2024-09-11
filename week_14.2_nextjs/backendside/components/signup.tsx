@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { ChangeEventHandler, useState } from "react";
+import { signup } from "@/app/action/user";
 
 export function Signup() {
   const [username, setUsername] = useState("");
@@ -37,10 +38,11 @@ export function Signup() {
               />
               <button
                 onClick={async () => {
-                  await axios.post("http://localhost:3000/api/user", {
-                    username,
-                    password,
-                  });
+                  // await axios.post("http://localhost:3000/api/user", {
+                  //   username,
+                  //   password,
+                  // });
+                  signup(username, password);
                   route.push("/");
                 }}
                 type="button"

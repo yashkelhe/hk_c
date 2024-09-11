@@ -1,4 +1,5 @@
 import axios from "axios";
+import { passwordGlobel, userglobelName } from "./api/user/route";
 
 async function getUserDetails() {
   // await new Promise((r) => setTimeout(r, 5000));
@@ -14,9 +15,9 @@ export default async function Home() {
     <div className="flex flex-col justify-center h-screen">
       <div className="flex justify-center">
         <div className="border p-8 rounded">
-          <div>Name: {userData?.name}</div>
+          <div>Name: {userglobelName}</div>
 
-          {userData?.email}
+          <div>Password :{passwordGlobel}</div>
         </div>
       </div>
     </div>

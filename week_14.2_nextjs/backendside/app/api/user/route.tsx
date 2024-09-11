@@ -1,19 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import client from "@/db";
 
-const client = new PrismaClient();
 export function GET() {
   return Response.json({
     name: "yash ",
     email: "yashkelhe30@gmail.com",
   });
 }
-
+export let userglobelName = "";
+export let passwordGlobel = "";
 export async function POST(req: NextRequest) {
   const data = await req.json();
   console.log(data);
   // create and database
   // hookName.name.create;
+  userglobelName = data.username;
+  passwordGlobel = data.password;
   try {
     await client.user.create({
       data: {
