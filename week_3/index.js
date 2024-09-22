@@ -5,11 +5,16 @@ const path = require("path");
 const { verify } = require("crypto");
 const app = express();
 
+// use for the parse
 app.use(express.json());
+// for Ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-const modul = mongoose.model("second_DB", { name: String, userName: String });
+// there are three steps to initialize the Mongo
+// import
+// connect the databas
+// create model
 
 mongoose
   .connect("take from newOne")
@@ -20,11 +25,13 @@ mongoose
     console.log("there is something up with the mongo connection");
   });
 
+const modul = mongoose.model("second_DB", { name: String, userName: String });
+
 app.post("/signUp", async (req, res) => {
   const { name, userName } = req.body;
   try {
+    // if exits then send back the req
     const existOne = await modul.findOne({ name: name, userName: userName });
-
     if (existOne) {
       return res.status(400).send("the user is already exist");
     }
@@ -58,7 +65,7 @@ const value = {
   accuntDetails: 234123,
 };
 
-// frist json and secret  key
+// frist json and secret  key password
 const token = jwt.sign(value, "324");
 console.log(token);
 

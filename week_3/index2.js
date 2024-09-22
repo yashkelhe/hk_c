@@ -53,6 +53,7 @@ const decodedToken = (token) => {
   }
 };
 
+// this will give u the info of the which is added to the jargon
 console.log(decodedToken(result2));
 
 app.listen(3002, () => {

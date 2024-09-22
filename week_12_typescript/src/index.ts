@@ -20,6 +20,7 @@ function Print(propsValue: partialVlaue) {
 }
 
 console.log(Print({ name: "yash", age: 12 }));
+console.log(Print({}));
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Readonly
@@ -77,9 +78,16 @@ const recordObj: recordValue = {
 
 recordObj["id"].age = 2;
 
+// for the object
+type some = {
+  id: {
+    name: string;
+    age: number;
+  };
+};
 // so to avoid this there is an maps
 // u can also give the generic to the map
-const mapsUser = new Map();
+const mapsUser = new Map<string, { age: number; name: string }>();
 mapsUser.set("id", { age: 12, name: "asj" });
 // and to get the value from the map we use the get
 

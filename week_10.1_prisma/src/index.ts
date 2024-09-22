@@ -24,6 +24,7 @@ async function insertData({
     },
     // there are banch of  option lik select
     //selec does that it only return the thing that u will mention and make it true
+    // from here
     select: {
       id: true,
       email: true,

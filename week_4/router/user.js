@@ -24,8 +24,9 @@ router.get("/courses", async (req, res) => {
     course: find,
   });
 });
-// implement the logic which person is by the perticular id number of course
+// implement the logic which person is buy the perticular id number of course
 // id =1 then course which is assign to 1 that will
+
 router.post("/courses/:courseid", UserMiddleware, async (req, res) => {
   const courseId = req.params.courseid;
   const username = req.headers["username"];

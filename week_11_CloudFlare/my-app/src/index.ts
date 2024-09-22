@@ -11,6 +11,7 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+// this is the organic way to write the HTTP method in the cloudflare
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		return new Response('Hello World!');

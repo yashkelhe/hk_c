@@ -18,6 +18,7 @@ console.log(result);
 function Run(fn: () => void) {
   setTimeout(fn, 1000);
 }
+const vv = (s: () => void) => {};
 
 Run(() => {
   console.log("hello");
@@ -63,6 +64,7 @@ class Employe implements Person {
   age: number;
 
   constructor(n: string, a: number) {
+    // this will indicate the class name and age
     this.name = n;
     this.age = a;
   }
@@ -77,6 +79,7 @@ const e = new Employe("name", 12);
 console.log(e);
 console.log(e.name);
 console.log(e.age);
+console.log(e.greet("yash kelhe"));
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // types
@@ -99,7 +102,7 @@ TypeFunction({
   age: 12,
   greet: (something: string) => {
     console.log({ something });
-    return `hel lo ${something}`;
+    return `hello ${something}`;
   },
 });
 

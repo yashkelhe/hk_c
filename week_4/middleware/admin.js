@@ -1,13 +1,14 @@
 const { Admin } = require("../db");
 
 const AdminMiddleware = (req, res, next) => {
-  // this header is for the authentication if u dont give this then it will give an error
+  // this header is for the authentication if u dont give this then it will give an error from the POSTMAN
+  // and in the website u have to store it in the localStorage
   const username = req.headers["username"];
   const password = req.headers["password"];
   if (!username || !password) {
     return res
       .status(400)
-      .json({ message: "Username and password are required" });
+      .json({ message: "Username and password are required! go login first " });
   }
   Admin.findOne({
     username: username,
