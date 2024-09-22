@@ -85,6 +85,7 @@ type some = {
     age: number;
   };
 };
+
 // so to avoid this there is an maps
 // u can also give the generic to the map
 const mapsUser = new Map<string, { age: number; name: string }>();
