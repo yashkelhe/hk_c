@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import { useContext, useState } from "react";
-import { ContextApi } from "./Context";
+import { ContextApi, newnew } from "./Context";
 
 const Login = lazy(() => import("./component/Login"));
 const Dashboard = lazy(() => import("./component/Dashboard"));
@@ -32,6 +32,7 @@ function App() {
 function Appbar() {
   const navGate = useNavigate();
   const [count, setCount] = useState(0);
+  const Obj = { id: "lets have it ", name: "yash" };
   return (
     <div>
       <button
@@ -53,7 +54,9 @@ function Appbar() {
       </div>
 
       <ContextApi.Provider value={count}>
-        <Sum />
+        <newnew.Provider value={Obj}>
+          <Sum />
+        </newnew.Provider>
       </ContextApi.Provider>
       <button
         onClick={() => {
@@ -75,7 +78,16 @@ function Appbar() {
 
 function Sum() {
   const contextValue = useContext(ContextApi);
-  return <div>the count is {contextValue}</div>;
+  const newne = useContext(newnew);
+
+  return (
+    <div>
+      the count is {contextValue}
+      <div>
+        {newne.id} {newne.name}
+      </div>
+    </div>
+  );
 }
 
 export default App;

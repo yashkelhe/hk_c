@@ -10,6 +10,7 @@ const passwordSchema = zod.string().min(6);
 
 // there are three first sign  , verify and decode in the JWT
 const signJWT = (username, password) => {
+  // zod
   const responseUser = emailSchema.safeParse(username);
   const responsePass = passwordSchema.safeParse(password);
 

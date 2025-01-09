@@ -24,6 +24,10 @@ let router = createBrowserRouter([
     path: "/signUp",
     element: <Signup />,
   },
+  {
+    path: "/hello",
+    element: <First />,
+  },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -10,7 +10,7 @@ app.use(cors());
 app.post("/todo", async (req, res) => {
   const createPayLoad = req.body;
   const parsePayload = createTodo.safeParse(createPayLoad);
-
+  // it will give success
   if (!parsePayload.success) {
     return res.status(400).json({ msg: "You haven't entered the right value" });
   }
@@ -42,6 +42,7 @@ app.put("/completed", async (req, res) => {
   }
 
   try {
+    // just google it if u not understood
     await Todo.updateOne({ _id: req.body.id }, { $set: { completed: true } });
     res.json({ msg: "Todo is marked as completed" });
   } catch (err) {
